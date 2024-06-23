@@ -24,7 +24,7 @@
 <body>
     <div class="search-container">
         <form id="searchForm" onsubmit="performSearch(event)">
-            <input type="text" id="searchInput" placeholder="Enter bbv3  your keyword..." required>
+            <input type="text" id="searchInput" placeholder="Enter your keyword..." required>
             <button type="submit">Search</button>
         </form>
     </div>
@@ -36,7 +36,7 @@
             event.preventDefault();
             const query = document.getElementById('searchInput').value;
             const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-            window.open(url, '_blank');
+            window.location.href = url;
         }
 
         function copyURL() {
