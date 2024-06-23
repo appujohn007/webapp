@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enhanced Web App</title>
+</head>
+<body>
+    <h1>Enhanced Web App</h1>
+    <input type="text" id="searchBox" placeholder="Search...">
+    <button id="searchButton">Search</button>
+    <button id="backButton">Back</button>
+    <button id="copyButton">Copy URL</button>
+    <script>
+        document.getElementById('searchButton').onclick = function() {
+            const query = document.getElementById('searchBox').value;
+            window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+        };
+
+        document.getElementById('backButton').onclick = function() {
+            window.history.back();
+        };
+
+        document.getElementById('copyButton').onclick = function() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('URL copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        };
+    </script>
+</body>
+</html>
